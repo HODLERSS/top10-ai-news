@@ -30,10 +30,7 @@ export default async function DigestPage({ params }: Props) {
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-12">
       <header className="mb-8 border-b border-zinc-200 pb-6 dark:border-zinc-800">
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
-          Top 10 News
-        </h1>
-        <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+        <p className="text-sm text-zinc-500 dark:text-zinc-400">
           Snapshot from {formatDigestDate(meta.date)}
         </p>
         <Link
