@@ -1,6 +1,7 @@
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import {
   formatDigestDate,
   getLatestDigest,
@@ -31,10 +32,7 @@ export default function Home() {
   return (
     <main className="mx-auto w-full max-w-4xl px-6 py-12">
       <header className="mb-8 border-b border-zinc-200 pb-6 dark:border-zinc-800">
-        <p className="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400">
-          AI Infrastructure
-        </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
           Top 10 News
         </h1>
         <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
@@ -45,6 +43,7 @@ export default function Home() {
       <article className="prose prose-zinc max-w-none dark:prose-invert prose-headings:font-semibold prose-h1:hidden prose-table:text-sm prose-th:bg-zinc-100 prose-th:text-left dark:prose-th:bg-zinc-800 prose-td:align-top prose-a:text-amber-700 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline">
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
+          rehypePlugins={[rehypeRaw]}
           components={{
             a: ({ href, children, ...props }) => (
               <a
