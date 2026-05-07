@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+/* Tighten table styles inside the markdown body */
+.prose table {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.prose th,
+.prose td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-zinc-200);
+}
+.dark .prose th,
+.dark .prose td {
+  border-color: var(--color-zinc-800);
+}
+.prose th {
+  background: var(--color-zinc-100);
+  font-weight: 600;
+}
+.dark .prose th {
+  background: var(--color-zinc-900);
+}
+
+/* Allow horizontal scroll on small screens */
+.prose > :where(table) {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .prose > :where(table) {
+    display: table;
+    white-space: normal;
+  }
+}
